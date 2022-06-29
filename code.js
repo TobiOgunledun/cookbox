@@ -1,32 +1,10 @@
-const paymentForm = document.getElementById('paymentForm');
-paymentForm.addEventListener("submit", payWithPaystack, false);
-function payWithPaystack(e) {
-  e.preventDefault();
-  let handler = PaystackPop.setup({
-    key: 'pk_live_b7ca3c8976fdb0f87162606974f42447c64bec5c', // Replace with your public key
-    email: document.getElementById("email-address").value,
-    amount: document.getElementById("amount").value * 100,
-    ref: ''+Math.floor((Math.random() * 1000000000) + 1), // generates a pseudo-unique reference. Please replace with a reference you generated. Or remove the line entirely so our API will generate one for you
-    // label: "Optional string that replaces customer email"
-    onClose: function(){
-      alert('Window closed.');
-    },
-    callback: function(response){
-      let message = 'Payment complete! Reference: ' + response.reference;
-      alert(message);
-    }
-  });
-  handler.openIframe();
-}
+
 
 
 
 const menuHide = document.getElementById("hideMenu");
 const menuShow = document.getElementById("showMenu");
 const navBar = document.getElementById("menubar");
-// const itemMinus = document.getElementById("itemMinus");
-// const itemPlus = document.getElementById("itemPlus");
-
 const theCart = document.getElementById("cart");
 const foodImage = document.getElementsByClassName("foodImage");
 const cartModel = document.getElementById("cartModel");
@@ -36,6 +14,7 @@ const boxDesc = document.getElementsByClassName("boxDesc");
 const theBody = document.getElementsByTagName("body")[0];
 
 menuHide.style.display = "none";
+
 function showMenu(){
     navBar.style.top = "3.8em";
     menuShow.style.display = "none";
@@ -117,6 +96,7 @@ function changeCategory(e){
    
     
 }
+
 
 
 function navLink(){

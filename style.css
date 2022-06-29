@@ -218,6 +218,7 @@ nav ul a:hover::after{
 }
 
 nav i{
+    display: none;
     position: absolute;
     right: 0;
     color: #000;
@@ -230,6 +231,7 @@ nav i{
     color: #000;
     margin-right: 2.5em;
     margin-bottom: 1.3em;
+    z-index: 100;
 }
 
 label{
