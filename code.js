@@ -1,0 +1,222 @@
+const menuHide = document.getElementById("hideMenu");
+const menuShow = document.getElementById("showMenu");
+const navBar = document.getElementById("menubar");
+// const itemMinus = document.getElementById("itemMinus");
+// const itemPlus = document.getElementById("itemPlus");
+const itemNumber = document.querySelector(".itemNumber");
+const theCart = document.getElementById("cart");
+const foodImage = document.getElementsByClassName("foodImage");
+const cartModel = document.getElementById("cartModel");
+const cartPage = document.getElementById("cartPage");
+const buttons = document.querySelector('.buttons')
+const boxDesc = document.getElementsByClassName("boxDesc");
+const theBody = document.getElementsByTagName("body")[0];
+
+menuHide.style.display = "none";
+function showMenu(){
+    navBar.style.top = "3.8em";
+    menuShow.style.display = "none";
+    menuHide.style.display = "block";
+
+}
+
+function hideMenu(){
+    navBar.style.top = "";
+    menuShow.style.display = "block";
+    menuHide.style.display = "none";
+}
+// window.onclick = function (e){
+//     // console.log(e.target);
+//     let close = e.target;
+
+//     if(close.classList[0] === "welcome" ){
+//         navBar.style.top = "";
+//         menuShow.style.display = "block";
+//         menuHide.style.display = "none";
+//     }
+// }
+
+
+buttons.addEventListener("click", changeCategory );
+
+
+
+function changeCategory(e){
+    console.log(e.target);
+   
+    const selectedButton = e.target;
+    const selected = selectedButton.classList[0];
+    
+    const boxModel = document.getElementsByClassName("boxModel");
+    const grill = document.getElementsByClassName("grill");
+    const soup = document.getElementsByClassName("soup");
+    const healthy = document.getElementsByClassName("healthy");
+
+
+
+    for(let i=0; i<boxModel.length; i++){
+        boxModel[i].style.display = "none";
+    }
+
+    switch(selected){
+        case "all":
+            console.log("all Catege")
+            for(let i=0; i<boxModel.length; i++){
+                boxModel[i].style.display = "block";
+            }
+            break;
+        case "grill":
+            console.log("grill catege")
+            for(let i=0; i<grill.length; i++){
+                grill[i].style.display = "block";
+            }
+            break;
+        case "soup":
+            console.log("soup catege")
+            for(let i=0; i<soup.length; i++){
+                soup[i].style.display = "block";
+            }
+            break; 
+        case "healthy":
+            console.log("healthy catege")
+            for(let i=0; i<healthy.length; i++){
+                healthy[i].style.display = "block";
+            }
+            break;   
+        default:
+            for(let i=0; i<boxModel.length; i++){
+                boxModel[i].style.display = "block";
+            };
+    }
+
+
+   
+   
+    
+}
+
+
+function navLink(){
+    navBar.style.top = "";
+    menuShow.style.display = "block";
+    menuHide.style.display = "none";
+}
+function showCart(){
+    cartPage.style.display = "flex"
+}
+function hideCart(){
+    cartPage.style.display = "none"
+}
+function addCart(){
+    console.log("Hiiiii");
+    for(let i=0; i<foodImage.length; i++){
+        newImage = foodImage[i].src;
+    }
+    for(let i=0; i<boxDesc.length; i++){
+        newContent = boxDesc[i].innerHTML;
+    }
+console.log(newImage);
+
+    
+
+
+    const cartBox = document.createElement('div');
+    cartBox.classList.add('cartBox');
+
+    const cartItem = document.createElement('div');
+    cartItem.classList.add('cartItem');
+
+    const cartImage = document.createElement('div');
+    cartImage.classList.add('cartImage');
+
+
+    const cartOverlay = document.createElement('div');
+    cartOverlay.classList.add('foodOverlay');
+
+    const theImage = document.createElement('img');
+    theImage.src = newImage;
+
+
+    const secondCart = document.createElement('div');
+    secondCart.classList.add('cartItem2');
+
+
+    const cartTitle = document.createElement('div');
+    cartTitle.innerHTML = newContent;
+    cartTitle.classList.add('cartTitle');
+
+    const cartButton = document.createElement('button');
+    cartButton.innerHTML = '<i class="fas fa-times"></i>';
+    cartButton.classList.add('cancel');
+
+    const cartOption = document.createElement('div');
+    
+    const minusBtn = document.createElement('button');
+         minusBtn.innerHTML = '<i class="fas fa-minus" id="itemMinus"></i>';
+         minusBtn.setAttribute('id', 'minusItem');
+
+        const cartOption2 = document.createElement('p');
+        cartOption2.innerHTML = '1';
+        cartOption2.classList.add('itemNumber')
+
+        const plusBtn = document.createElement('button');
+        plusBtn.classList.add('plusItem');
+        plusBtn.innerHTML = '<i class="fas fa-plus" id="itemPlus"></i> ';
+
+    cartOption.classList.add('cartOption');
+
+
+    cartModel.appendChild(cartBox); //CHECKED
+
+    cartBox.appendChild(cartItem); //CHECKED
+
+    cartItem.appendChild(cartImage); //CHECKED
+    cartItem.appendChild(secondCart); //CHECKED
+
+    secondCart.appendChild(cartTitle);
+
+    cartOption.appendChild(minusBtn);
+    cartOption.appendChild(cartOption2);
+    cartOption.appendChild(plusBtn);
+
+   
+    cartTitle.appendChild(cartButton);
+
+    secondCart.appendChild(cartTitle);
+    secondCart.appendChild(cartOption);
+
+
+    cartImage.appendChild(theImage); //CHECKED
+    cartImage.appendChild(cartOverlay); //CHECKED
+}
+
+// function removeCart(e){
+//     console.log("WTF!");
+//     console.log(e.target);
+
+// }
+
+
+
+
+var paymentForm = document.getElementById('paymentForm');
+paymentForm.addEventListener('submit', payWithPaystack, false);
+function payWithPaystack() {
+  var handler = PaystackPop.setup({
+    key: 'pk_live_b7ca3c8976fdb0f87162606974f42447c64bec5c', // Replace with your public key
+    email: document.getElementById('email-address').value,
+    amount: document.getElementById('amount').value * 100, // the amount value is multiplied by 100 to convert to the lowest currency unit
+    currency: 'NGN', // Use GHS for Ghana Cedis or USD for US Dollars
+    ref: 'YOUR_REFERENCE', // Replace with a reference you generated
+    callback: function(response) {
+      //this happens after the payment is completed successfully
+      var reference = response.reference;
+      alert('Payment complete! Reference: ' + reference);
+      // Make an AJAX call to your server with the reference to verify the transaction
+    },
+    onClose: function() {
+      alert('Transaction was not completed, window closed.');
+    },
+  });
+  handler.openIframe();
+}
