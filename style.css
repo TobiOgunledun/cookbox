@@ -606,15 +606,18 @@ aside{
 .form-group{
     margin: 1em auto;
 }
-/* .form-group p{
+.form-group label{
     margin-bottom: .5em;
-} */
-/* .theForm input{
+    color: var(--mainColor);
+    padding-left: 0;
+}
+.theForm input{
+    margin-top: 1em;
     padding: .5em;
     border-radius: .5em;
     border: 2px solid var(--midColor);
     width: 100%;
-} */
+}
 
 .itemDetails{
     width: 100%;
