@@ -1,9 +1,32 @@
+const paymentForm = document.getElementById('paymentForm');
+paymentForm.addEventListener("submit", payWithPaystack, false);
+function payWithPaystack(e) {
+  e.preventDefault();
+  let handler = PaystackPop.setup({
+    key: 'pk_live_b7ca3c8976fdb0f87162606974f42447c64bec5c', // Replace with your public key
+    email: document.getElementById("email-address").value,
+    amount: document.getElementById("amount").value * 100,
+    ref: ''+Math.floor((Math.random() * 1000000000) + 1), // generates a pseudo-unique reference. Please replace with a reference you generated. Or remove the line entirely so our API will generate one for you
+    // label: "Optional string that replaces customer email"
+    onClose: function(){
+      alert('Window closed.');
+    },
+    callback: function(response){
+      let message = 'Payment complete! Reference: ' + response.reference;
+      alert(message);
+    }
+  });
+  handler.openIframe();
+}
+
+
+
 const menuHide = document.getElementById("hideMenu");
 const menuShow = document.getElementById("showMenu");
 const navBar = document.getElementById("menubar");
 // const itemMinus = document.getElementById("itemMinus");
 // const itemPlus = document.getElementById("itemPlus");
-const itemNumber = document.querySelector(".itemNumber");
+
 const theCart = document.getElementById("cart");
 const foodImage = document.getElementsByClassName("foodImage");
 const cartModel = document.getElementById("cartModel");
@@ -153,15 +176,15 @@ console.log(newImage);
     
     const minusBtn = document.createElement('button');
          minusBtn.innerHTML = '<i class="fas fa-minus" id="itemMinus"></i>';
-         minusBtn.setAttribute('id', 'minusItem');
+         minusBtn.setAttribute('onclick', 'decrement()');
 
         const cartOption2 = document.createElement('p');
-        cartOption2.innerHTML = '1';
+        cartOption2.innerHTML = "1";
         cartOption2.classList.add('itemNumber')
 
         const plusBtn = document.createElement('button');
-        plusBtn.classList.add('plusItem');
         plusBtn.innerHTML = '<i class="fas fa-plus" id="itemPlus"></i> ';
+        plusBtn.setAttribute('onclick', 'increment()');
 
     cartOption.classList.add('cartOption');
 
@@ -196,27 +219,22 @@ console.log(newImage);
 
 // }
 
+// const decrease = document.getElementById("itemMinus");
 
-
-
-var paymentForm = document.getElementById('paymentForm');
-paymentForm.addEventListener('submit', payWithPaystack, false);
-function payWithPaystack() {
-  var handler = PaystackPop.setup({
-    key: 'pk_live_b7ca3c8976fdb0f87162606974f42447c64bec5c', // Replace with your public key
-    email: document.getElementById('email-address').value,
-    amount: document.getElementById('amount').value * 100, // the amount value is multiplied by 100 to convert to the lowest currency unit
-    currency: 'NGN', // Use GHS for Ghana Cedis or USD for US Dollars
-    ref: 'YOUR_REFERENCE', // Replace with a reference you generated
-    callback: function(response) {
-      //this happens after the payment is completed successfully
-      var reference = response.reference;
-      alert('Payment complete! Reference: ' + reference);
-      // Make an AJAX call to your server with the reference to verify the transaction
-    },
-    onClose: function() {
-      alert('Transaction was not completed, window closed.');
-    },
-  });
-  handler.openIframe();
+// decrease.addEventListener("click", decrement);
+const itemNumber = document.getElementsByClassName(".itemNumber")[0];
+console.log(itemNumber)
+var x = 1;
+function decrement(e){
+    console.log("Help me!");
 }
+function increment(e){
+    console.log("Okay, e dn leave me");
+    let newItemNumb = x++;
+    console.log(itemNumber.innerHTML);
+   
+}
+
+
+
+
