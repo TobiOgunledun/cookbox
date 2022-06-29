@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;500;600;700;800&display=swap');
+
 *{
     padding: 0;
     margin: 0;
@@ -19,7 +21,7 @@ body{
     position: relative;
     background: #000;
     color: #ff0000;
-    /* transform: translateX(60vw); */
+    font-family: 'League Spartan', sans-serif;
     overflow-x: hidden;
     width: 100vw;
 }
@@ -119,7 +121,19 @@ header p{
     padding: 1em 0;
     font-size: var(--medium);
 }
-
+.geolocation button{
+    background: #000;
+    color: var(--mainColor);
+    animation: geolocation .5s infinite;
+}
+@keyframes geolocation{
+    0%, 100%{
+        transform: scale(1);
+    }
+    50%{
+        transform: scale(1.06);
+    }
+}
 nav{
     position: fixed;
     top: 0;
