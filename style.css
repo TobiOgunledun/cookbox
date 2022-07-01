@@ -83,7 +83,7 @@ button:hover{
     z-index: -1;
 }
 span{
-    color: var(--midColor);
+    color: #fff;
 }
 section{
     width: 100%;
@@ -322,8 +322,10 @@ label{
 }
 .aboutText p{
     font-size: var(--regular);
+    text-align: start;
 }
 .aboutText .btn{
+    text-align: start;
     padding: 1em 0;
    
 }
@@ -392,8 +394,9 @@ label{
     position: relative;
     outline: hidden;
     overflow: hidden;
-    transition: all 1s ease-in-out;}
-
+    transition: all 1s ease-in-out;
+    color: #fff;
+}
 .boxModel .boxImage{
     position: relative;
 
