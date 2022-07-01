@@ -100,26 +100,68 @@ section{
 main{
     width: 100vw;
     height: 35em;
-    background: var(--mainColor);
+    display: flex;
+    justify-content: center;
+    align-items: center;
     position: relative;
+    overflow: hidden;
+}
+main::before{
+    position: absolute;
+    inset: 0;
+    content: " ";
+    width: 100vw;
+    height: 35em;
+    background: rgba(255, 0, 0, .7);
+}
+.images{
+    position: absolute;
+    top:0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100vw;
+    height: 35em;
+    display: flex;
+    z-index: -1;
+}
+.images img{
+    width: 100vw;
+    object-position: 50% 50%;
 }
 header{
     position: absolute;
-    bottom: 10vh;
-    left: 5vh;
-    color: #000;
+    bottom: 25%;
     width: 70%;
+    color: #000;
+    text-align: center;
 }
 header h1{
-    font-size: 3em;
-    text-transform: capitalize;
+    font-size: 2.5em;
+    text-transform: uppercase;
+    transform: translateX(100vw);
+    animation: first 1s ease forwards;
+    animation-delay: .5s;
 }
 header span{
     color:var(--midColor);
 }
 header p{
     padding: 1em 0;
-    font-size: var(--medium);
+    width: 75%;
+    margin: auto;
+    font-size: var(--regular);
+    transform: translateX(-100vw);
+    animation: second 1s ease forwards;
+    animation-delay: 1s;
+
+}
+.geolocation{
+    opacity: 0;
+    transform: scale(0);
+    animation: third 1s forwards;
+    animation-delay: 1.5s;
+
 }
 .geolocation button{
     background: #000;
@@ -134,10 +176,26 @@ header p{
         transform: scale(1.06);
     }
 }
+@keyframes first{
+    100%{
+        transform: translateX(0);
+    }
+}
+@keyframes second{
+    100%{
+        transform: translateX(0);
+    }
+}
+@keyframes third{
+    100%{
+       opacity: 1;
+       transform: scale(1);
+    }
+}
 nav{
     position: fixed;
     top: 0;
-    width: 100%;
+    width: 100vw;
     height: 3.8em;
     display: flex;
     justify-content: space-between;
@@ -528,7 +586,7 @@ aside{
     border-radius: 1em;
     box-shadow: 0 10px 15px rgba(0, 0, 0, .2);
 }
-.cartItem .cancel{
+.cartTitle button{
     position: absolute;
     top: 0;
     right: -1em;
@@ -543,8 +601,14 @@ aside{
 }
 .cartItem .cartImage{
     width: 50%;
+    height: 12em;
     position: relative;
     z-index: 1;
+}
+.cartItem .cartImage img{
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
 }
 .cartItem .cartItem2{
     width: 50%;

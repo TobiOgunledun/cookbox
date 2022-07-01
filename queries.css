@@ -34,8 +34,12 @@
         padding-right: 1em;
         display: block;
     }
-    header form i{
-        right: 35%;
+    header h1{
+        font-size: 3.5em;
+        text-transform: uppercase;
+    }
+    header p{
+        font-size: var(--medium);
     }
     #showMenu, #HideMenu, nav i{
         display: none;
