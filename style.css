@@ -112,7 +112,7 @@ main::before{
     content: " ";
     width: 100vw;
     height: 35em;
-    background: rgba(255, 0, 0, .7);
+    background: rgba(255, 0, 0, .5);
 }
 .images{
     position: absolute;
