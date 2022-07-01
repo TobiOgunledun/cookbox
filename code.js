@@ -9,7 +9,6 @@ const theCart = document.getElementById("cart");
 const foodImage = document.getElementsByClassName("foodImage");
 const cartModel = document.getElementById("cartModel");
 const cartPage = document.getElementById("cartPage");
-const buttons = document.querySelector('.buttons')
 const boxDesc = document.getElementsByClassName("boxDesc");
 const theBody = document.getElementsByTagName("body")[0];
 
@@ -39,63 +38,19 @@ function hideMenu(){
 // }
 
 
-buttons.addEventListener("click", changeCategory );
+var sliderImages = document.getElementsByClassName("sliderImages");
+let b = 0;
 
+console.log(sliderImages);
+// sliderImages.style.transform = "translateX(-100vw)";
 
-
-function changeCategory(e){
-    console.log(e.target);
-   
-    const selectedButton = e.target;
-    const selected = selectedButton.classList[0];
-    
-    const boxModel = document.getElementsByClassName("boxModel");
-    const grill = document.getElementsByClassName("grill");
-    const soup = document.getElementsByClassName("soup");
-    const healthy = document.getElementsByClassName("healthy");
-
-
-
-    for(let i=0; i<boxModel.length; i++){
-        boxModel[i].style.display = "none";
-    }
-
-    switch(selected){
-        case "all":
-            console.log("all Catege")
-            for(let i=0; i<boxModel.length; i++){
-                boxModel[i].style.display = "block";
-            }
-            break;
-        case "grill":
-            console.log("grill catege")
-            for(let i=0; i<grill.length; i++){
-                grill[i].style.display = "block";
-            }
-            break;
-        case "soup":
-            console.log("soup catege")
-            for(let i=0; i<soup.length; i++){
-                soup[i].style.display = "block";
-            }
-            break; 
-        case "healthy":
-            console.log("healthy catege")
-            for(let i=0; i<healthy.length; i++){
-                healthy[i].style.display = "block";
-            }
-            break;   
-        default:
-            for(let i=0; i<boxModel.length; i++){
-                boxModel[i].style.display = "block";
-            };
-    }
-
-
-   
-   
-    
-}
+// function imageSlider(){
+//     for(b; b<sliderImages.length; b++){
+//     sliderImages[b].style.transform = "translateX(-100vw)";
+// }
+//     console.log("we go'n be okay")
+// }
+// setInterval(imageSlider, 3000)
 
 
 
@@ -110,13 +65,27 @@ function showCart(){
 function hideCart(){
     cartPage.style.display = "none"
 }
-function addCart(){
+
+var foodTitle = document.getElementsByClassName("foodTitle");
+let i = 0;
+
+
+
+function addCart(item){
     console.log("Hiiiii");
     for(let i=0; i<foodImage.length; i++){
         newImage = foodImage[i].src;
     }
-    for(let i=0; i<boxDesc.length; i++){
-        newContent = boxDesc[i].innerHTML;
+
+    // for(let i=0; i<boxDesc.length; i++){
+
+    //     newContent = boxDesc[i].innerHTML;
+    //     console.log(newContent);
+    // }
+    for(i;i<foodTitle.length; i++){
+    
+        var newTitle = foodTitle[i].innerHTML;
+        // console.log(mugu);
     }
 console.log(newImage);
 
@@ -145,12 +114,17 @@ console.log(newImage);
 
 
     const cartTitle = document.createElement('div');
-    cartTitle.innerHTML = newContent;
+    // cartTitle.innerHTML = newContent;
     cartTitle.classList.add('cartTitle');
+
+    const itemName = document.createElement('h1');
+    itemName.innerHTML = newTitle;
+    itemName.classList.add('itemName');
+
 
     const cartButton = document.createElement('button');
     cartButton.innerHTML = '<i class="fas fa-times"></i>';
-    cartButton.classList.add('cancel');
+    cartButton.setAttribute('onclick', 'removeCart()');
 
     const cartOption = document.createElement('div');
     
@@ -184,6 +158,8 @@ console.log(newImage);
 
    
     cartTitle.appendChild(cartButton);
+    cartTitle.appendChild(itemName);
+
 
     secondCart.appendChild(cartTitle);
     secondCart.appendChild(cartOption);
@@ -193,11 +169,13 @@ console.log(newImage);
     cartImage.appendChild(cartOverlay); //CHECKED
 }
 
-// function removeCart(e){
-//     console.log("WTF!");
-//     console.log(e.target);
 
-// }
+
+function removeCart(item){
+    console.log("WTF!");  
+    document.querySelector(".cartBox").remove(item);  
+
+}
 
 // const decrease = document.getElementById("itemMinus");
 
