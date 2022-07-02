@@ -1,4 +1,7 @@
 const buttons = document.querySelector('.buttons')
+const productsInCart = document.getElementById('categorySection');
+
+productsInCart.addEventListener("click", addToCart);
 
 buttons.addEventListener("click", changeCategory );
 function changeCategory(e){
@@ -11,7 +14,7 @@ function changeCategory(e){
     const grill = document.getElementsByClassName("grill");
     const soup = document.getElementsByClassName("soup");
     const healthy = document.getElementsByClassName("healthy");
-
+    const groc = document.getElementsByClassName("groc");
 
 
     for(let i=0; i<boxModel.length; i++){
@@ -55,4 +58,22 @@ function changeCategory(e){
             };
     }
    
+}
+
+
+function addToCart(e){
+    const items = e.target;
+//    console.log(items);
+
+
+   if(items.classList.contains('foodTitle')){
+       console.log("yes");
+       for(let i = 0; i<items.classList.contains('foodTitle').length; i++){
+            var myGee = items.classList.contains('foodTitle')[i];
+       }
+   }
+   if(items.classList.contains('cartBtn')){
+       console.log("Yo! You hit me.");
+       console.log(myGee.innerHTML);
+   }
 }

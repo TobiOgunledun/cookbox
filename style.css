@@ -450,6 +450,9 @@ label{
     right:-5%;
     cursor: pointer;
 }
+.boxModel .boxDesc button i{
+    pointer-events: none;
+}
 .orderSection{
     padding: 1em;
     text-align: center;

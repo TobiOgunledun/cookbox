@@ -71,103 +71,103 @@ let i = 0;
 
 
 
-function addCart(item){
-    console.log("Hiiiii");
-    for(let i=0; i<foodImage.length; i++){
-        newImage = foodImage[i].src;
-    }
+// function addCart(item){
+//     console.log("Hiiiii");
+//     for(let i=0; i<foodImage.length; i++){
+//         newImage = foodImage[i].src;
+//     }
 
-    // for(let i=0; i<boxDesc.length; i++){
+//     // for(let i=0; i<boxDesc.length; i++){
 
-    //     newContent = boxDesc[i].innerHTML;
-    //     console.log(newContent);
-    // }
-    for(i;i<foodTitle.length; i++){
+//     //     newContent = boxDesc[i].innerHTML;
+//     //     console.log(newContent);
+//     // }
+//     for(i;i<foodTitle.length; i++){
     
-        var newTitle = foodTitle[i].innerHTML;
-        // console.log(mugu);
-    }
-console.log(newImage);
+//         var newTitle = foodTitle[i].innerHTML;
+//         // console.log(mugu);
+//     }
+// console.log(newImage);
 
     
 
 
-    const cartBox = document.createElement('div');
-    cartBox.classList.add('cartBox');
+//     const cartBox = document.createElement('div');
+//     cartBox.classList.add('cartBox');
 
-    const cartItem = document.createElement('div');
-    cartItem.classList.add('cartItem');
+//     const cartItem = document.createElement('div');
+//     cartItem.classList.add('cartItem');
 
-    const cartImage = document.createElement('div');
-    cartImage.classList.add('cartImage');
-
-
-    const cartOverlay = document.createElement('div');
-    cartOverlay.classList.add('foodOverlay');
-
-    const theImage = document.createElement('img');
-    theImage.src = newImage;
+//     const cartImage = document.createElement('div');
+//     cartImage.classList.add('cartImage');
 
 
-    const secondCart = document.createElement('div');
-    secondCart.classList.add('cartItem2');
+//     const cartOverlay = document.createElement('div');
+//     cartOverlay.classList.add('foodOverlay');
+
+//     const theImage = document.createElement('img');
+//     theImage.src = newImage;
 
 
-    const cartTitle = document.createElement('div');
-    // cartTitle.innerHTML = newContent;
-    cartTitle.classList.add('cartTitle');
-
-    const itemName = document.createElement('h1');
-    itemName.innerHTML = newTitle;
-    itemName.classList.add('itemName');
+//     const secondCart = document.createElement('div');
+//     secondCart.classList.add('cartItem2');
 
 
-    const cartButton = document.createElement('button');
-    cartButton.innerHTML = '<i class="fas fa-times"></i>';
-    cartButton.setAttribute('onclick', 'removeCart()');
+//     const cartTitle = document.createElement('div');
+//     // cartTitle.innerHTML = newContent;
+//     cartTitle.classList.add('cartTitle');
 
-    const cartOption = document.createElement('div');
+//     const itemName = document.createElement('h1');
+//     itemName.innerHTML = newTitle;
+//     itemName.classList.add('itemName');
+
+
+//     const cartButton = document.createElement('button');
+//     cartButton.innerHTML = '<i class="fas fa-times"></i>';
+//     cartButton.setAttribute('onclick', 'removeCart()');
+
+//     const cartOption = document.createElement('div');
     
-    const minusBtn = document.createElement('button');
-         minusBtn.innerHTML = '<i class="fas fa-minus" id="itemMinus"></i>';
-         minusBtn.setAttribute('onclick', 'decrement()');
+//     const minusBtn = document.createElement('button');
+//          minusBtn.innerHTML = '<i class="fas fa-minus" id="itemMinus"></i>';
+//          minusBtn.setAttribute('onclick', 'decrement()');
 
-        const cartOption2 = document.createElement('p');
-        cartOption2.innerHTML = "1";
-        cartOption2.classList.add('itemNumber')
+//         const cartOption2 = document.createElement('p');
+//         cartOption2.innerHTML = "1";
+//         cartOption2.classList.add('itemNumber')
 
-        const plusBtn = document.createElement('button');
-        plusBtn.innerHTML = '<i class="fas fa-plus" id="itemPlus"></i> ';
-        plusBtn.setAttribute('onclick', 'increment()');
+//         const plusBtn = document.createElement('button');
+//         plusBtn.innerHTML = '<i class="fas fa-plus" id="itemPlus"></i> ';
+//         plusBtn.setAttribute('onclick', 'increment()');
 
-    cartOption.classList.add('cartOption');
+//     cartOption.classList.add('cartOption');
 
 
-    cartModel.appendChild(cartBox); //CHECKED
+//     cartModel.appendChild(cartBox); //CHECKED
 
-    cartBox.appendChild(cartItem); //CHECKED
+//     cartBox.appendChild(cartItem); //CHECKED
 
-    cartItem.appendChild(cartImage); //CHECKED
-    cartItem.appendChild(secondCart); //CHECKED
+//     cartItem.appendChild(cartImage); //CHECKED
+//     cartItem.appendChild(secondCart); //CHECKED
 
-    secondCart.appendChild(cartTitle);
+//     secondCart.appendChild(cartTitle);
 
-    cartOption.appendChild(minusBtn);
-    cartOption.appendChild(cartOption2);
-    cartOption.appendChild(plusBtn);
+//     cartOption.appendChild(minusBtn);
+//     cartOption.appendChild(cartOption2);
+//     cartOption.appendChild(plusBtn);
 
    
-    cartTitle.appendChild(cartButton);
-    cartTitle.appendChild(itemName);
+//     cartTitle.appendChild(cartButton);
+//     cartTitle.appendChild(itemName);
 
 
-    secondCart.appendChild(cartTitle);
-    secondCart.appendChild(cartOption);
+//     secondCart.appendChild(cartTitle);
+//     secondCart.appendChild(cartOption);
 
 
-    cartImage.appendChild(theImage); //CHECKED
-    cartImage.appendChild(cartOverlay); //CHECKED
-}
+//     cartImage.appendChild(theImage); //CHECKED
+//     cartImage.appendChild(cartOverlay); //CHECKED
+// }
 
 
 
