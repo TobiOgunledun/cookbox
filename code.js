@@ -1,7 +1,3 @@
-
-
-
-
 const menuHide = document.getElementById("hideMenu");
 const menuShow = document.getElementById("showMenu");
 const navBar = document.getElementById("menubar");
