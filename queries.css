@@ -50,6 +50,13 @@
     label{
         width: 25vw;
     }
+    .thevid{
+       width: 50%;
+       margin: 0 auto;
+    }
+    video{
+        width: 100%;
+    }
     .aboutSection .aboutImage, .aboutSection .aboutText{
         width: 45%;
     }
@@ -127,6 +134,13 @@
     .aboutSection .aboutImage, .aboutSection .aboutText{
         width: 45%;
     }
+    .thevid{
+        width: 50%;
+        margin: 0 auto;
+     }
+     video{
+         width: 100%;
+     }
     footer{
         padding-top: 1em;
 
