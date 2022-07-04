@@ -99,12 +99,28 @@ const addToCart = document.getElementsByClassName('cartBtn');
 
 
 for (var i = 0; i < addToCart.length; i++) {
-  var button = addToCart[i];
-  button.addEventListener('click', addToCartClicked)
+  var theButton = addToCart[i];
+  theButton.addEventListener('click', addToCartClicked)
 }
 
+
+
+// function addToCartClicked(event){
+//     console.log("olla")
+//     items = event.target;
+//     var cartItem = items.parentElement;
+//     var title = cartItem.getElementsByClassName('foodTitle')[0].innerText;
+//     console.log(title);
+//     var price = cartItem.getElementsByClassName('foodPrice')[0].innerText;
+//     console.log(price);
+//     var imageSrc = cartItem.getElementsByClassName('itemImage')[0].src;
+//     console.log(imageSrc);
+// }
+
+
+
 function addToCartClicked (event) {
-    button = event.target;
+    var button = event.target;
     var cartItem = button.parentElement;
     var title = cartItem.getElementsByClassName('foodTitle')[0].innerText;
     console.log(title);
@@ -146,28 +162,19 @@ function addItemToCart (price, imageSrc) {
     }
     
     var cartRowItems = `
-    <div class="cartBox" id="cartBox">
     <div class="cartItem" id="cartItem">
         <div class="cartImage" id="cartImage">
             <div class="foodOverlay"></div>
-            <img src="${imageSrc}"  alt="" class="cartImage">
+            <img src="${imageSrc}" alt="" class="cartImage">
         </div>
-        <div class="cartItem2" id="cartItem2">
-            <div class="cartTitle" id="cartTitle">
-                <h1> ${title}</h1>
-                <h2 class ="cartPrice"><span>${price}</span></h2>
-                <button class="cancel"><i class="fas fa-times"></i></button>
-            </div>
-            <div class="cartOption" id="cartOption">
-               <input class="itemNumber" type="number" value="1">
-            </div>
+        <div class="cartTitle" id="cartTitle">
+            <h1>${title}</h1>
+            <h2 class="cartPrice">${price}</h2>
+            <button class="cancel"><i class="fas fa-times"></i></button>
+            <input type="number" min="1" class="itemNumber">
         </div>
-        
-    </div>
-   
-</div>
-          
-        `
+    </div>    
+    `
     productRow.innerHTML = cartRowItems;
     productRows.append(productRow);
     productRow.getElementsByClassName('cancel')[0].addEventListener('click', removeItem)
@@ -177,13 +184,14 @@ function addItemToCart (price, imageSrc) {
 
 const removeBtn = document.getElementsByClassName('cancel');
 for (var i = 0; i < removeBtn.length; i++) {
-  button = removeBtn[i]
+  var button = removeBtn[i]
   button.addEventListener('click', removeItem)
 }
 
 function removeItem (event) {
-  btnClicked = event.target
-  btnClicked.parentElement.parentElement.remove()
+  var btnClicked = event.target
+  
+  btnClicked.parentElement.parentElement.parentElement.remove()
   updateCartPrice()
 }
 
