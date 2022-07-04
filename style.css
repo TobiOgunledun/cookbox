@@ -151,7 +151,10 @@ main::before{
 header{
     position: absolute;
     bottom: 25%;
+    left: 0;
     width: 70%;
+    margin: 0 auto;
+    transform: translateX(20%);
     color: #000;
     text-align: center;
 }

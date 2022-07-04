@@ -57,6 +57,10 @@
     video{
         width: 100%;
     }
+    header{
+        left: 30%;
+        transform: translateX(-15%);
+    }
     .aboutSection .aboutImage, .aboutSection .aboutText{
         width: 45%;
     }
@@ -141,6 +145,11 @@
      video{
          width: 100%;
      }
+
+     header{
+        left: 30%;
+        transform: translateX(-15%);
+    }
     footer{
         padding-top: 1em;
 
