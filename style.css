@@ -321,7 +321,7 @@ label{
     width: 100%;
 }
 .aboutText p{
-    font-size: var(--regular);
+    font-size: var(--medium);
     text-align: start;
 }
 .aboutText .btn{
@@ -401,6 +401,7 @@ label{
 }
 .boxModel h1{
     padding-top: 1em;
+
 }
 .boxModel .boxImage{
     position: relative;
