@@ -37,7 +37,6 @@ const productsInCart = document.getElementById('categorySection');
 
 buttons.addEventListener("click", changeCategory );
 function changeCategory(e){
-    console.log(e.target);
    
     const selectedButton = e.target;
     const selected = selectedButton.classList[0];
@@ -55,31 +54,26 @@ function changeCategory(e){
 
     switch(selected){
         case "all":
-            console.log("all Catege")
             for(let i=0; i<boxModel.length; i++){
                 boxModel[i].style.display = "block";
             }
             break;
         case "grill":
-            console.log("grill catege")
             for(let i=0; i<grill.length; i++){
                 grill[i].style.display = "block";
             }
             break;
         case "soup":
-            console.log("soup catege")
             for(let i=0; i<soup.length; i++){
                 soup[i].style.display = "block";
             }
             break; 
         case "healthy":
-            console.log("healthy catege")
             for(let i=0; i<healthy.length; i++){
                 healthy[i].style.display = "block";
             }
             break; 
         case "groc":
-            console.log("groceries catege")
             for(let i=0; i<groc.length; i++){
                 groc[i].style.display = "block";
             }
@@ -93,7 +87,6 @@ function changeCategory(e){
 }
 
 
-// productsInCart.addEventListener("click", addToCart);
 
 const addToCart = document.getElementsByClassName('cartBtn');
 
@@ -103,31 +96,12 @@ for (var i = 0; i < addToCart.length; i++) {
   theButton.addEventListener('click', addToCartClicked)
 }
 
-
-
-// function addToCartClicked(event){
-//     console.log("olla")
-//     items = event.target;
-//     var cartItem = items.parentElement;
-//     var title = cartItem.getElementsByClassName('foodTitle')[0].innerText;
-//     console.log(title);
-//     var price = cartItem.getElementsByClassName('foodPrice')[0].innerText;
-//     console.log(price);
-//     var imageSrc = cartItem.getElementsByClassName('itemImage')[0].src;
-//     console.log(imageSrc);
-// }
-
-
-
 function addToCartClicked (event) {
     var button = event.target;
     var cartItem = button.parentElement;
     var title = cartItem.getElementsByClassName('foodTitle')[0].innerText;
-    console.log(title);
     var price = cartItem.getElementsByClassName('foodPrice')[0].innerText;
-    console.log(price);
     var imageSrc = cartItem.getElementsByClassName('itemImage')[0].src;
-    console.log(imageSrc);
     
     
     addItemToCart (price, imageSrc);
@@ -188,10 +162,8 @@ for (var i = 0; i < removeBtn.length; i++) {
   button.addEventListener('click', removeItem)
 }
 
-function removeItem (event) {
-  var btnClicked = event.target
-  
-  btnClicked.parentElement.parentElement.parentElement.remove()
+function removeItem () {
+  document.querySelector(".cartBox").remove();  
   updateCartPrice()
 }
 
