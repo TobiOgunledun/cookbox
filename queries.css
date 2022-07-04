@@ -59,9 +59,23 @@
     }
     header{
         left: 30%;
-        transform: translateX(-15%);
+        transform: translateX(-10%);
     }
     .aboutSection .aboutImage, .aboutSection .aboutText{
+        width: 45%;
+    }
+    .cateringSection{
+        margin-top: 3em;
+        flex-direction: row-reverse;
+        padding-top: 2em;
+    }
+    .cateringSection .catImages{
+        width: 35%;
+    }
+    .cateringSection .catImage2{
+        width: 50%;
+    }
+    .cateringSection .catText{
         width: 45%;
     }
     footer{
@@ -149,6 +163,20 @@
      header{
         left: 30%;
         transform: translateX(-15%);
+    }
+    .cateringSection{
+        margin-top: 3em;
+        flex-direction: row-reverse;
+        padding-top: 2em;
+    }
+    .cateringSection .catImages{
+        width: 35%;
+    }
+    .cateringSection .catImage2{
+        width: 50%;
+    }
+    .cateringSection .catText{
+        width: 45%;
     }
     footer{
         padding-top: 1em;
