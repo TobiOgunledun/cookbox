@@ -162,9 +162,10 @@ for (var i = 0; i < removeBtn.length; i++) {
   button.addEventListener('click', removeItem)
 }
 
-function removeItem () {
-  document.querySelector(".cartBox").remove();  
-  updateCartPrice()
+function removeItem (event) {
+    btnClicked = event.target
+    btnClicked.parentElement.parentElement.parentElement.remove()
+    updateCartPrice()
 }
 
 var quantityInput = document.getElementsByClassName('itemNumber')[0];
