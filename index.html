@@ -13,6 +13,9 @@
 
 	<link rel="stylesheet" href="file:///C:/Users/User/Desktop/iTins/icons/fontawesome-free-6.1.1-web/css/all.css">
 
+	<link rel="stylesheet" href="/icons/fontawesome-free-6.1.1-web/css/all.css">
+
+
     <script src="https://kit.fontawesome.com/2bbbf54a3f.js" crossorigin="anonymous"></script>
 
 </head>
@@ -45,7 +48,7 @@
                     <li><a href="#about" onclick="navLink()">about us</a></li>
                     <li><a href="menu.html" onclick="navLink()">menu</a></li>
                     <li><a href="catering.html" onclick="navLink()">catering</a></li>
-                    <li><a href="#footer" onclick="navLink()">contact</a></li>
+                    <li><a href="mailto:cokersegun54@gmail.com" onclick="navLink()">contact</a></li>
 
                 </ul>
 
@@ -78,7 +81,7 @@
                         We specialize in all Nigerian dishes and working towards driving them to the fore front of fine dining.
                     </p>
                     <div class="btn" id="btn">
-                        <a href="#category"><button>All Menu</button></a>
+                        <a href="menu.html"><button>Our Menu</button></a>
                     </div>
                 </div>
             </div>
@@ -189,7 +192,7 @@
                     </h1>
                 </div>
 
-                <a href="#cartPage"><button onclick="showCart()">Place Your Order Now</button></a>
+                <a href="menu.html"><button onclick="showCart()">Place Your Order Now</button></a>
 
             </div>
 
@@ -197,76 +200,6 @@
     </section>
 
 
-    <div class="cartPage" id="cartPage">
-        <button onclick="hideCart()" class="returnIcon"><i class="fas fa-arrow-left"></i></button>
-
-        <aside class="cartSection" id="cartSection" >
-            <div class="wrapper" id="wrapper">
-
-                <div class="header" style="font-size: 1em; border-bottom: 2px solid #000">
-                    <h1>shopping <span>cart</span></h1>
-                </div>
-                <div class="cartModel" id="cartModel">
-                    <div class="cartBox" id="cartBox">
-                        <div class="cartItem" id="cartItem">
-                            <div class="cartImage" id="cartImage">
-                                <div class="foodOverlay"></div>
-                                <img src="./img/bkg02.png" alt="">
-                            </div>
-                            <div class="cartItem2" id="cartItem2">
-                                <div class="cartTitle" id="cartTitle">
-                                    <h1>
-                                        burger
-                                    </h1>
-                                    <h2><span>NGN 2000</span></h2>
-                                    <button class="cancel"><i class="fas fa-times"></i></button>
-                                </div>
-                                <div class="cartOption" id="cartOption">
-                                   
-                                   <button class="minusItem"><i class="fas fa-minus" id="itemMinus"></i></button> 
-                                    <p class="itemNumber">
-                                        1
-                                    </p>
-                                    <button class="plusItem"><i class="fas fa-plus" id="itemPlus"></i> </button>
-                                </div>
-                            </div>
-                            
-                        </div>
-                       
-                    </div>
-                </div>
-    
-                <!-- <button onclick="checkOut()">checkout</button> -->
-            </div>        
-        </aside>
-    
-    
-    
-        <div class="payment" id="payment">
-
-
-            <div class="itemDetails">
-               <div class="title">
-                   <h3>item</h3>
-                   <h3 style="color: #1d693b;">total (ngn)</h3> 
-               </div>
-               <div class="itemsListing">
-                   <h3>subtotal</h3>
-                   <p>2000</p>
-               </div>
-               <div class="itemsListing">
-                    <h3>delivery fee</h3>
-                    <p>1000</p>
-                </div>
-                <div class="itemsListing">
-                    <h3>total</h3>
-                    <p></p>
-                </div>
-            </div>
-            
-            <a href="cart.html"><button>Proceed to Pay</button></a>
-        </div>
-    </div>
 
     <footer class="footer" id="footer">
         <div class="container" id="container">
@@ -287,9 +220,9 @@
                     <ul>
                         <li><a href="#home">home</a></li>
                         <li><a href="#about">about us</a></li>
-                        <li><a href="#category">menu</a></li>
+                        <li><a href="menu.html">menu</a></li>
                         <li><a href="catering.html">catering</a></li>
-                        <li><a href="#footer">contact</a></li>
+                        <li><a href="mailto:cokersegun54@gmail.com">contact</a></li>
                     </ul>
                 </div>
             </div>

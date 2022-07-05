@@ -549,13 +549,18 @@ label{
 .catText form input, .catText form select, .catText form textarea{
     width: 50%;
     padding: .2em;
-    font-size: var(--regular);
+    font-size: 1.1em;
     background: transparent;
     color: #fff;
     border: 1px solid transparent;
     border-radius: .5em;
     margin-top: 0;
     text-align: start;
+}
+.catText form select{
+    /* color:#000; */
+    background: #000;
+    border: 0;
 }
 .catText form input[type=submit]{
     margin: 1em 0;
