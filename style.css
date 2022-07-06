@@ -6,9 +6,9 @@
     scroll-behavior: smooth;
 }
 :root{
-    --mainColor: #ff0000;
-    --midColor: #ff9f29;
-    --subColor: #ffe5b4;
+    --mainColor: #dc2f2f;
+    --midColor: #ff894c;
+    --subColor: #f8f8f8;
     --small: 1.1em;
     --regular:1.2em;
     --medium: 1.3em;
@@ -49,7 +49,7 @@ button{
     border-radius: .3em;
     border: none;
     text-transform: capitalize;
-    background: #ff0000;
+    background: var(--mainColor);
     color: #000;
     cursor: pointer;
     transition: all .3s ease;
@@ -246,13 +246,13 @@ nav{
     align-items: center;
     color: #fff;
     z-index: 10;
-    background: var(--mainColor);
-    background: rgb(255, 0, 0, .9);
+    background: rgba(220, 47, 47, .8);
     backdrop-filter: blur(5px);
     box-shadow: 0 5px 5px rgba(0, 0, 0, .2);
 }
 nav ul{
     width: 100vw;
+    height: fit-content;
     position: absolute;
     top:-70vh;
     left: 0;
@@ -263,7 +263,7 @@ nav ul{
     gap: 1em;
     list-style: none;
     padding: 1em 0;
-    background: rgb(255, 0, 0, .7);
+    background: rgb(220, 47, 47, .8);
     backdrop-filter: blur(5px);
     border-bottom: 2px solid var(--midColor);
     box-shadow: 0 5px 5px rgba(0, 0, 0, .2);
@@ -429,7 +429,7 @@ label{
     width: 20em;
     height: 20em;
     border-radius: 1em;
-    box-shadow: 0 5px 10px rgba(255, 0, 0, .5);
+    box-shadow: 0 5px 10px rgba(220, 47, 47, .5);
     position: relative;
     text-transform: capitalize;
     outline: hidden;
@@ -582,7 +582,7 @@ label{
 }
 .catText form input[type=submit]:hover{
     transform: scale(.95);
-    box-shadow: 3px 7px 25px rgba(255, 0, 0, .5);
+    box-shadow: 3px 7px 25px rgba(220, 47, 47, .5);
 }
 footer{
     background: url(./img/logo02.jpg);
@@ -636,6 +636,7 @@ footer::before{
     position: relative;
     color:#000;
     transition: all .5s ease;
+    font-size: 1.1em;
 }
 .foot_content1 a::before{
     content: "";
@@ -721,7 +722,7 @@ footer::before{
 }
 
 aside{
-    background: rgba(255, 0, 0, .3);
+    background: rgba(220, 47, 47, .3);
     backdrop-filter: blur(5px);
     width: 100%;
     transition: all .7s ease;
