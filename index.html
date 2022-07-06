@@ -37,7 +37,7 @@
                 </p>
                
                 <div class="geolocation">
-                    <button class="find-me">Check your location <i class="fas fa-location"></i></button>
+                    <button class="find-me" onclick="findMe()">Check your location <i class="fas fa-location"></i></button>
                 </div>
             </header>
             <nav>
@@ -52,7 +52,7 @@
 
                 </ul>
 
-                <i class="fas fa-location-dot location" id="" onclick="location()"></i></a>
+                <i class="fas fa-location-dot location" id="" onclick="showContact()"></i></a>
                 <i class="fas fa-bars menu" id="showMenu" onclick="showMenu()"></i>
                 <i class="fas fa-times menu" id="hideMenu" onclick="hideMenu()"></i>
             </nav>
@@ -226,13 +226,32 @@
         </div>
     </section>
 
-    <!-- <div class="locationSection" id="locationSection">
+    <div class="locationSection" id="locationSection">
+        <div class="coverPicture">
+            <img src="./img/contact.jpeg" alt="">
+        </div>
         <div class="container" id="container">
-            <div class="coverPicture">
-                <img src="./img/contact.jpeg" alt="">
+            <div class="locationText">
+
+                <div class="findUser">
+                    <p>your location is:</p>
+                    <h1 id="findMe"></h1>
+                    <button onclick="findMe()">find your location</button>
+                </div>
+
+
+                <div class="contactIcons">
+                    <i class="fab fa-whatsapp" style="color: #68c729;"></i><a href="https://wa.me/+234 "> Cookbox_inc</a> <br>
+                    <i class="fab fa-instagram" style="color: #ff00ff;"></i><a href="https://www.instagram.com/Cookbox_inc">Cookbox_inc </a> <br>
+                    <i class="fab fa-facebook" style="color: blue;"></i><a href="" >Cookbox_inc</a><br>
+                    <i class="fas fa-phone" style="color: rgb(0, 183, 255);"></i><a href="tel:+2347030770313" > Call Cookbox_inc</a><br>
+                    <i class="fas fa-house" style="color: rgb(255, 0, 0);"></i><a href=""> 5, Iyana Iyesi, Ota, Ogun State.</a>
+                </div>
+               
             </div>
         </div>
-    </div> -->
+        <i class="fas fa-times goBack" onclick="hideContact()"></i>
+    </div>
 
 
     <footer class="footer" id="footer">
@@ -243,8 +262,8 @@
             <div class="foot_contents">
                 <div class="foot_content1">
                     <a href="" ><i class="fab fa-facebook" style="color: blue;"></i></a>
-                    <a href="" ><i class="fab fa-whatsapp" style="color: #68c729;"></i></a>
-                    <a href="" > <i class="fab fa-instagram" style="color: #ff00ff;"></i></a>
+                    <a href="https://wa.me/+234 " ><i class="fab fa-whatsapp" style="color: #68c729;"></i></a>
+                    <a href="https://www.instagram.com/Cookbox_inc" > <i class="fab fa-instagram" style="color: #ff00ff;"></i></a>
                     <a href="" > <i class="fab fa-twitter" style="color: rgb(0, 183, 255);"></i></a>
                     
                    

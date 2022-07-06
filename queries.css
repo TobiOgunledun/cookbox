@@ -47,6 +47,12 @@
     #showMenu2, #HideMenu2, nav i{
         display: none;
     }
+    .location{
+        right: 0;
+    }
+    #cart2{
+        right: 5%;
+    }
     label{
         width: 25vw;
     }
@@ -140,6 +146,12 @@
     }
     #showMenu2, #HideMenu2, nav i{
         display: none;
+    }
+    .location{
+        right: 0;
+    }
+    #cart2{
+        right: 5%;
     }
     label{
         font-size: 1.3em;

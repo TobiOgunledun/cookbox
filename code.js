@@ -42,7 +42,7 @@ function navLink(){
 //     cartPage.style.display = "none"
 // }
 
-const findMe = () => {
+function findMe() {
     const success = (position) => {
         console.log(position);
         var latitude = position.coords.latitude;
@@ -53,7 +53,7 @@ const findMe = () => {
         .then(res => res.json())
         .then(data => {
             console.log(data);
-            // .innerHtml = data.principalSubdivision;
+            document.getElementById('findMe').innerHtml = data.principalSubdivision;
         })
     }
     const error = () => {
@@ -63,8 +63,6 @@ const findMe = () => {
     
     navigator.geolocation.getCurrentPosition(success, error);
 }
-document.querySelector('.find-me').addEventListener("click", findMe);
-
 
 
 var myIndex = 0;
@@ -84,8 +82,13 @@ function carousel(){
 setTimeout(carousel, 5000);		
 }
 
-
-
+var locationIcon = document.getElementById('locationSection')
+function showContact(){
+    locationIcon.style.right = 0;
+}
+function hideContact(){
+    locationIcon.style.right = "";
+}
 
 
 
