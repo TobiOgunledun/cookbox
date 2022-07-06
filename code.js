@@ -38,20 +38,28 @@ function hideCart(){
     cartPage.style.display = "none"
 }
 
-var foodTitle = document.getElementsByClassName("foodTitle");
-let i = 0;
 
 
 
+var myIndex = 0;
+		carousel()
 
-
-
-
-function removeCart(item){
-    console.log("WTF!");  
-    document.querySelector(".cartBox").remove(item);  
-
+function carousel(){
+	var i;
+	var x = document.getElementsByClassName('sliderImages');
+	for(i=0;i<x.length;i++){
+		x[i].style.display = "none";
+	}
+	myIndex++;
+	if(myIndex > x.length){
+		myIndex = 1
+	}
+	x[myIndex - 1].style.display = "block";
+setTimeout(carousel, 5000);		
 }
+
+
+
 
 
 

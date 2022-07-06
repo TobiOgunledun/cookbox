@@ -129,11 +129,14 @@ main::before{
     content: " ";
     width: 100vw;
     height: 35em;
-    background: rgba(0, 0, 0, .4);
+    background: rgba(0, 0, 0, .2);
 }
 main img{
     width: 100%;
     height: 100%;
+    opacity: 0;
+    transition: all 1s ease-in-out;
+    animation: slider 2s ease forwards;
 }
 .images{
     position: absolute;
@@ -159,7 +162,7 @@ header{
     width: 70%;
     margin: 0 auto;
     transform: translateX(20%);
-    color: #000;
+    color: #fff;
     text-align: center;
 }
 header h1{
@@ -180,7 +183,7 @@ header p{
     transform: translateX(-100vw);
     animation: second 1s ease forwards;
     animation-delay: 1s;
-
+    color: rgb(209, 201, 201);
 }
 .geolocation{
     opacity: 0;
@@ -223,6 +226,14 @@ header p{
     100%{
        opacity: 1;
        transform: translateY(0) translateX(5%);
+    }
+}
+@keyframes slider{
+    25%{
+        opacity: .5;
+    }
+    100%{
+        opacity: 1;
     }
 }
 nav{
