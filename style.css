@@ -325,13 +325,17 @@ nav i{
     right: 0;
     color: #000;
     font-size: var(--large);
-    padding-right: 1em;
+    margin-right: 1.5em;
     cursor: pointer;
 }
-#cart, #cart2 {
+.location{
+    right: 7%;
+}
+ #cart2 {
     position: relative;
     color: #000;
-    margin-right: 2.5em;
+    right: 15%;
+    margin-right: 0;
     margin-bottom: 1.3em;
     z-index: 100;
 }
@@ -343,7 +347,6 @@ label{
     margin-left: .5em;
     cursor: pointer;
 }
-
 
 .aboutSection{
     width: 100%;

@@ -9,6 +9,10 @@ const boxDesc = document.getElementsByClassName("boxDesc");
 const theBody = document.getElementsByTagName("body")[0];
 
 menuHide.style.display = "none";
+// if(document.readyState == "loading"){
+//     document.addEventListener
+// }
+
 
 function showMenu(){
     navBar.style.top = "3.8em";
@@ -31,13 +35,35 @@ function navLink(){
     menuShow.style.display = "block";
     menuHide.style.display = "none";
 }
-function showCart(){
-    cartPage.style.display = "flex"
-}
-function hideCart(){
-    cartPage.style.display = "none"
-}
+// function showCart(){
+//     cartPage.style.display = "flex"
+// }
+// function hideCart(){
+//     cartPage.style.display = "none"
+// }
 
+const findMe = () => {
+    const success = (position) => {
+        console.log(position);
+        var latitude = position.coords.latitude;
+        var longitude = position.coords.longitude;
+
+        const geoApi = `https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${latitude}&longitude=${longitude}&localityLanguage=en`
+        fetch(geoApi)
+        .then(res => res.json())
+        .then(data => {
+            console.log(data);
+            // .innerHtml = data.principalSubdivision;
+        })
+    }
+    const error = () => {
+        alert("unable to retrieve your location")
+    }
+
+    
+    navigator.geolocation.getCurrentPosition(success, error);
+}
+document.querySelector('.find-me').addEventListener("click", findMe);
 
 
 
