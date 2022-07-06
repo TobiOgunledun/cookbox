@@ -508,6 +508,60 @@ label{
     background: rgba(0, 0, 0, .5);
     border-bottom: 2px solid var(--mainColor);
 }
+.orderProcedure{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 2em;
+}
+.orderProcedure .orderBox{
+    width: 15em;
+    height: 15em;
+    overflow: hidden;
+    position: relative;
+    text-align: center;
+    box-shadow: 0 5px 10px rgba(220, 47, 47, .5);
+    border-radius: 1em;
+}
+.orderBox p{
+    text-transform: uppercase;
+    padding: 1em 0;
+    font-weight: 600;
+}
+.orderBox .image{
+    width: 50%;
+    margin: 0 auto;
+}
+.orderBox .image img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.orderBox .number{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    font-size: 3.5em;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(30deg, #000, #ff0000, #000);
+    transition: all .7s ease-in-out;
+}
+.orderBox:hover .number{
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
+    font-size: var(--regular);
+    width: 100%;
+    height: 2.5em;
+    border-radius: 1em;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
 .orderSection button{
     margin: 1em 0;
 }
