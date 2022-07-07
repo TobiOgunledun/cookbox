@@ -95,14 +95,31 @@ for (var i = 0; i < addToCart.length; i++) {
   var theButton = addToCart[i];
   theButton.addEventListener('click', addToCartClicked)
 }
-
 function addToCartClicked (event) {
     var button = event.target;
-        var cartItem = button.parentElement;
-        var title = cartItem.getElementsByClassName('foodTitle')[0].innerText;
-        var price = cartItem.getElementsByClassName('foodPrice')[0].innerText;
-        var imageSrc = cartItem.getElementsByClassName('itemImage')[0].src;
+    var cartItem = button.parentElement;
+    var title = cartItem.getElementsByClassName('foodTitle')[0].innerText;
+    var price = cartItem.getElementsByClassName('foodPrice')[0].innerText;
+    var imageSrc = cartItem.getElementsByClassName('itemImage')[0].src;
+    
+    
+    addItemToCart (price, imageSrc, event);
+    updatePrice()
+}
 
+
+
+
+function addItemToCart (price, imageSrc, event) {
+    button = event.target;
+    var cartItem = button.parentElement;
+    var title = cartItem.getElementsByClassName('foodTitle')[0].innerText;
+    console.log(title);
+    var price = cartItem.getElementsByClassName('foodPrice')[0].innerText;
+    console.log(price);
+    var imageSrc = cartItem.getElementsByClassName('itemImage')[0].src;
+    console.log(imageSrc);
+    
     var productRow = document.createElement('div');
     productRow.classList.add('cartBox');
     var productRows = document.getElementsByClassName('cartModel')[0];
@@ -136,16 +153,8 @@ function addToCartClicked (event) {
     productRow.getElementsByClassName('cancel')[0].addEventListener('click', removeItem)
     productRow.getElementsByClassName('itemNumber')[0].addEventListener('change', changeQuantity)
 
-    var delivery =  document.getElementById('delivery')
-    theDelivery = delivery.innerHTML;
-
-
-//   document.getElementsByClassName('cart-quantity')[0].textContent = i /= 2
-
-   
     updatePrice()
 }
-
 
 function updatePrice(){
     var total = 0
@@ -165,18 +174,12 @@ function updatePrice(){
       
    
     }
-    console.log(productRow)
-    console.log(price)
-    console.log(quantity)
-    console.log(subTotal)
-    console.log(total)
-
+    console.log(document.getElementsByClassName('totalPrice')[0])
     document.getElementById('subtotal').innerText = subTotal;
-    document.getElementById('totalPrice').innerText =   total;
+    document.getElementsByClassName('totalPrice')[0].innerText =   total;
     document.getElementsByClassName('newAmount')[0].value = total;
 
-    console.log( document.getElementsByClassName('newAmount')[0]);
-    console.log(document.getElementById('totalPrice'));
+    
 }
 
 
@@ -190,11 +193,11 @@ for (var i = 0; i < removeBtn.length; i++) {
 function removeItem (event) {
     btnClicked = event.target
     btnClicked.parentElement.parentElement.parentElement.remove()
-    // updateCartPrice()
+    updatePrice()
 }
 
 
-var quantityInput = document.getElementsByClassName('itemNumber')[0];
+var quantityInput = document.getElementsByClassName('itemNumber');
 
 for (var i = 0; i < quantityInput; i++){
       input = quantityInput[i]
@@ -206,118 +209,7 @@ for (var i = 0; i < quantityInput; i++){
       if (isNaN(input.value) || input.value <= 0){
         input.value = 1
       }
-    //   updateCartPrice()
+      updatePrice()
     }
 
-
-// function addToCartClicked (event) {
-//     var button = event.target;
-//     var cartItem = button.parentElement;
-//     var title = cartItem.getElementsByClassName('foodTitle')[0].innerText;
-//     var price = cartItem.getElementsByClassName('foodPrice')[0].innerText;
-//     var imageSrc = cartItem.getElementsByClassName('itemImage')[0].src;
-    
-    
-//     addItemToCart (price, imageSrc);
-//     updateCartPrice()
-// }
-
-
-
-// function addItemToCart (price, imageSrc) {
-    
-//     button = event.target;
-//     var cartItem = button.parentElement;
-//     var title = cartItem.getElementsByClassName('foodTitle')[0].innerText;
-//     console.log(title);
-//     var price = cartItem.getElementsByClassName('foodPrice')[0].innerText;
-//     console.log(price);
-//     var imageSrc = cartItem.getElementsByClassName('itemImage')[0].src;
-//     console.log(imageSrc);
-    
-//     var productRow = document.createElement('div');
-//     productRow.classList.add('cartBox');
-//     var productRows = document.getElementsByClassName('cartModel')[0];
-//     var cartImage = document.getElementsByClassName('cartImage');
-
-    
-    
-//     for (var i = 0; i < cartImage.length; i++){
-//       if (cartImage[i].src == imageSrc){
-//         alert ('This item has already been added to the cart')
-//         return;
-//       }
-//     }
-    
-//     var cartRowItems = `
-//     <div class="cartItem" id="cartItem">
-//         <div class="cartImage" id="cartImage">
-//             <div class="foodOverlay"></div>
-//             <img src="${imageSrc}" alt="" class="cartImage">
-//         </div>
-//         <div class="cartTitle" id="cartTitle">
-//             <h1>${title}</h1>
-//             <h2 class="cartPrice">${price}</h2>
-//             <button class="cancel"><i class="fas fa-times"></i></button>
-//             <input type="number" min="1" class="itemNumber">
-//         </div>
-//     </div>    
-//     `
-//     productRow.innerHTML = cartRowItems;
-//     productRows.append(productRow);
-//     productRow.getElementsByClassName('cancel')[0].addEventListener('click', removeItem)
-//     productRow.getElementsByClassName('itemNumber')[0].addEventListener('change', changeQuantity)
-//     updateCartPrice()
-// }
-
-// const removeBtn = document.getElementsByClassName('cancel');
-// for (var i = 0; i < removeBtn.length; i++) {
-//   var button = removeBtn[i]
-//   button.addEventListener('click', removeItem)
-// }
-
-// function removeItem (event) {
-//     btnClicked = event.target
-//     btnClicked.parentElement.parentElement.parentElement.remove()
-//     updateCartPrice()
-// }
-
-// var quantityInput = document.getElementsByClassName('itemNumber')[0];
-
-// for (var i = 0; i < quantityInput; i++){
-//   input = quantityInput[i]
-//   input.addEventListener('change', changeQuantity)
-// }
-
-// function changeQuantity(event) {
-//   var input = event.target
-//   if (isNaN(input.value) || input.value <= 0){
-//     input.value = 1
-//   }
-//   updateCartPrice()
-// }
-  
-
-// function updateCartPrice() {
-//     var total = 0
-//     var productRow = document.createElement('div');
-//     productRow.classList.add('cartBox');
-//     for (var i = 0; i < productRow.length; i += 2) {
-//       cartRow = productRow[i]
-       
-     
-//     var priceElement = cartRow.getElementsByClassName('cartPrice')[0]
-//     var quantityElement = cartRow.getElementsByClassName('itemNumber')[0]
-//     var deliveryFee = 1000
-//     var price = parseFloat(priceElement.innerText.replace('NGN', ''))
-//     var quantity = quantityElement.value
-//     total = total + (price * quantity ) + deliveryFee;
-      
-    
-//     }
-//     document.getElementById('delivery').innerHTML = 'NGN' + deliveryFee
-//     document.getElementsByClassName('totalPrice')[0].innerText =  'NGN' + total
-  
-// //   document.getElementsByClassName('cart-quantity')[0].textContent = i /= 2
-// }
 

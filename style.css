@@ -992,7 +992,7 @@ aside{
     margin-top: 1em;
     padding: .4em;
     border-radius: .5em;
-    font-size: var(--small);
+    font-size: 1em;
     background: rgba(255, 255, 255, .8);
     border: 2px solid var(--midColor);
     width: 100%;
