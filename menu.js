@@ -127,7 +127,7 @@ function addToCartClicked (event) {
             <h1>${title}</h1>
             <h2 class="cartPrice">${price}</h2>
             <button class="cancel"><i class="fas fa-times"></i></button>
-            <input type="number" min="1" class="itemNumber">
+            <input type="number" min="1" class="itemNumber" value="1">
         </div>
     </div>    
     `
@@ -139,29 +139,47 @@ function addToCartClicked (event) {
     var delivery =  document.getElementById('delivery')
     theDelivery = delivery.innerHTML;
 
-var total = 0
-    // var productRow = document.createElement('div');
-    // productRow.classList.add('cartBox');
+
+//   document.getElementsByClassName('cart-quantity')[0].textContent = i /= 2
+
+   
+    updatePrice()
+}
+
+
+function updatePrice(){
+    var total = 0
+    var productRow = document.getElementsByClassName('cartBox');
     for (var i = 0; i < productRow.length; i += 2) {
-      productRow[i]
+     var cartRow = productRow[i]
       
      
     var priceElement = cartRow.getElementsByClassName('cartPrice')[0]
     var quantityElement = cartRow.getElementsByClassName('itemNumber')[0]
-    var deliveryFee = theDelivery;
-    var price = parseFloat(priceElement.innerText.replace('NGN', ''))
-    var quantity = quantityElement.value
-    total =  deliveryFee + (price * quantity );
+    const DELIVERYFEE = 1000;
+    var price = parseInt(priceElement.innerText.replace('NGN', ' '))
+    var quantity = quantityElement.value;
+ 
+    var subTotal = price * quantity;
+    total =  total + (price * quantity ) + DELIVERYFEE;
       
    
     }
-    // document.getElementById('delivery').innerHTML = 'NGN' + deliveryFee
-    document.getElementById('totalPrice').innerText =  'NGN' + total
-  
-//   document.getElementsByClassName('cart-quantity')[0].textContent = i /= 2
+    console.log(productRow)
+    console.log(price)
+    console.log(quantity)
+    console.log(subTotal)
+    console.log(total)
 
+    document.getElementById('subtotal').innerText = subTotal;
+    document.getElementById('totalPrice').innerText =   total;
+    document.getElementsByClassName('newAmount')[0].value = total;
+
+    console.log( document.getElementsByClassName('newAmount')[0]);
     console.log(document.getElementById('totalPrice'));
 }
+
+
 
 const removeBtn = document.getElementsByClassName('cancel');
 for (var i = 0; i < removeBtn.length; i++) {
