@@ -53,7 +53,7 @@ function findMe() {
         .then(res => res.json())
         .then(data => {
             console.log(data);
-            document.getElementById('findMe').innerHtml = data.principalSubdivision;
+            document.getElementById('findMe').innerHTML = data.principalSubdivision;
         })
     }
     const error = () => {
