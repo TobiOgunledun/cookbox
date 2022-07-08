@@ -89,52 +89,41 @@ function changeCategory(e){
 
 
 const addToCart = document.getElementsByClassName('cartBtn');
-
+const productRow = document.getElementsByClassName('product-row');
 
 for (var i = 0; i < addToCart.length; i++) {
-  var theButton = addToCart[i];
+  theButton = addToCart[i];
   theButton.addEventListener('click', addToCartClicked)
 }
+
 function addToCartClicked (event) {
-    var button = event.target;
-    var cartItem = button.parentElement;
-    var title = cartItem.getElementsByClassName('foodTitle')[0].innerText;
-    var price = cartItem.getElementsByClassName('foodPrice')[0].innerText;
-    var imageSrc = cartItem.getElementsByClassName('itemImage')[0].src;
-    
-    
-    addItemToCart (price, imageSrc, event);
-    updatePrice()
+  button = event.target;
+  var cartItem = button.parentElement;
+  var title = cartItem.getElementsByClassName('foodTitle')[0].innerText;
+  var price = cartItem.getElementsByClassName('foodPrice')[0].innerText;
+  // console.log(price);
+  var imageSrc = cartItem.getElementsByClassName('itemImage')[0].src;
+  // console.log(imageSrc);
+  
+  
+  addItemToCart (title, price, imageSrc);
+  updateCartPrice()
 }
 
-
-
-
-function addItemToCart (price, imageSrc, event) {
-    button = event.target;
-    var cartItem = button.parentElement;
-    var title = cartItem.getElementsByClassName('foodTitle')[0].innerText;
-    console.log(title);
-    var price = cartItem.getElementsByClassName('foodPrice')[0].innerText;
-    console.log(price);
-    var imageSrc = cartItem.getElementsByClassName('itemImage')[0].src;
-    console.log(imageSrc);
-    
-    var productRow = document.createElement('div');
-    productRow.classList.add('cartBox');
-    var productRows = document.getElementsByClassName('cartModel')[0];
-    var cartImage = document.getElementsByClassName('cartImage');
-
-    
-    
-    for (var i = 0; i < cartImage.length; i++){
-      if (cartImage[i].src == imageSrc){
-        alert ('This item has already been added to the cart')
-        return;
-      }
+function addItemToCart (title, price, imageSrc) {
+  var productRow = document.createElement('div');
+  productRow.classList.add('cartBox');
+  var productRows = document.getElementsByClassName('cartModel')[0];
+  var cartImage = document.getElementsByClassName('cartImage');
+  
+  for (var i = 0; i < cartImage.length; i++){
+    if (cartImage[i].src == imageSrc){
+      alert ('This item has already been added to the cart')
+      return;
     }
-    
-    var cartRowItems = `
+  }
+  
+  var cartRowItems = `
     <div class="cartItem" id="cartItem">
         <div class="cartImage" id="cartImage">
             <div class="foodOverlay"></div>
@@ -146,44 +135,19 @@ function addItemToCart (price, imageSrc, event) {
             <button class="cancel"><i class="fas fa-times"></i></button>
             <input type="number" min="1" class="itemNumber" value="1">
         </div>
-    </div>    
-    `
-    productRow.innerHTML = cartRowItems;
-    productRows.append(productRow);
-    productRow.getElementsByClassName('cancel')[0].addEventListener('click', removeItem)
-    productRow.getElementsByClassName('itemNumber')[0].addEventListener('change', changeQuantity)
+    </div>
+        
+      `
+  productRow.innerHTML = cartRowItems;
+  productRows.append(productRow);
+  productRow.getElementsByClassName('cancel')[0].addEventListener('click', removeItem);
+  productRow.getElementsByClassName('itemNumber')[0].addEventListener('change', changeQuantity);
 
-    updatePrice()
+  updateCartPrice()
 }
+// end of add products to cart
 
-function updatePrice(){
-    var total = 0
-    var productRow = document.getElementsByClassName('cartBox');
-    for (var i = 0; i < productRow.length; i += 2) {
-     var cartRow = productRow[i]
-      
-     
-    var priceElement = cartRow.getElementsByClassName('cartPrice')[0]
-    var quantityElement = cartRow.getElementsByClassName('itemNumber')[0]
-    const DELIVERYFEE = 1000;
-    var price = parseInt(priceElement.innerText.replace('NGN', ' '))
-    var quantity = quantityElement.value;
- 
-    var subTotal = price * quantity;
-    total =  total + (price * quantity ) + DELIVERYFEE;
-      
-   
-    }
-    console.log(document.getElementsByClassName('totalPrice')[0])
-    document.getElementById('subtotal').innerText = subTotal;
-    document.getElementsByClassName('totalPrice')[0].innerText =   total;
-    document.getElementsByClassName('newAmount')[0].value = total;
-
-    
-}
-
-
-
+// Remove products from cart
 const removeBtn = document.getElementsByClassName('cancel');
 for (var i = 0; i < removeBtn.length; i++) {
   var button = removeBtn[i]
@@ -191,25 +155,55 @@ for (var i = 0; i < removeBtn.length; i++) {
 }
 
 function removeItem (event) {
-    btnClicked = event.target
-    btnClicked.parentElement.parentElement.parentElement.remove()
-    updatePrice()
+  btnClicked = event.target
+  btnClicked.parentElement.parentElement.parentElement.parentElement.remove()
+  updateCartPrice()
 }
 
-
-var quantityInput = document.getElementsByClassName('itemNumber');
+// update quantity input
+var quantityInput = document.getElementsByClassName('itemNumber')[0];
 
 for (var i = 0; i < quantityInput; i++){
-      input = quantityInput[i]
-      input.addEventListener('change', changeQuantity)
+  input = quantityInput[i]
+  input.addEventListener('change', changeQuantity)
+}
+
+function changeQuantity(event) {
+  var input = event.target
+  if (isNaN(input.value) || input.value <= 0){
+    input.value = 1
+  }
+  updateCartPrice()
+}
+// end of update quantity input
+
+// update total price
+function updateCartPrice() {
+  var total = 0
+  var subtotal = 0;
+    var productRow = document.getElementsByClassName('cartBox');
+    for (var i = 0; i < productRow.length; i++) {
+     var cartRow = productRow[i]
+      
+     
+    var priceElement = cartRow.getElementsByClassName('cartPrice')[0];
+    var quantityElement = cartRow.getElementsByClassName('itemNumber')[0]
+    const DELIVERYFEE = 1000;
+    var price = parseInt(priceElement.innerText.replace('NGN', ' '))
+    var quantity = quantityElement.value;
+ 
+    var subTotal = subtotal + ( price * quantity);
+    total =  total + (price * quantity ) + DELIVERYFEE;
+      
+   
     }
-    
-    function changeQuantity(event) {
-      var input = event.target
-      if (isNaN(input.value) || input.value <= 0){
-        input.value = 1
-      }
-      updatePrice()
-    }
+    // console.log(document.getElementsByClassName('totalPrice')[0])
+    document.getElementById('subtotal').innerText = subTotal;
+    document.getElementsByClassName('totalPrice')[0].innerText =   total;
+    document.getElementsByClassName('newAmount')[0].value = total;
 
 
+    document.getElementsByClassName('cartQuantity')[0].style.transform = "scale(1)"
+    document.getElementsByClassName('cartQuantity')[0].textContent = i
+}
+// end of update total price

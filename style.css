@@ -345,7 +345,19 @@ nav i{
     margin-bottom: 1.5em;
     z-index: 100;
 }
-
+#cart2 .cartQuantity{
+    position: absolute;
+    top: -.5em;
+    right: 1.5em;
+    font-size: .8em;
+    margin-right: 1em;
+    background: var(--midColor);
+    color: var(--subColor);
+    padding: .2em .4em;
+    border-radius: 50%;
+    transform: scale(0);
+    transition: all .5s ease-in-out
+}
 label{
     font-size: 1.7em;
     color: #000;
