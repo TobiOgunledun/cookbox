@@ -356,7 +356,7 @@ nav i{
     padding: .2em .4em;
     border-radius: 50%;
     transform: scale(0);
-    transition: all .5s ease-in-out
+    transition: all .3s ease-in-out
 }
 label{
     font-size: 1.7em;
@@ -919,7 +919,7 @@ aside{
     border-radius: 1em;
     box-shadow: 0 10px 15px rgba(0, 0, 0, .2);
 }
-.cartTitle button{
+.cartItem button{
     position: absolute;
     top: 0;
     right: -1em;

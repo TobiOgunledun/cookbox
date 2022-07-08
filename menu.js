@@ -132,9 +132,9 @@ function addItemToCart (title, price, imageSrc) {
         <div class="cartTitle" id="cartTitle">
             <h1>${title}</h1>
             <h2 class="cartPrice">${price}</h2>
-            <button class="cancel"><i class="fas fa-times"></i></button>
             <input type="number" min="1" class="itemNumber" value="1">
         </div>
+        <button class="cancel"><i class="fas fa-times"></i></button>
     </div>
         
       `
@@ -156,7 +156,11 @@ for (var i = 0; i < removeBtn.length; i++) {
 
 function removeItem (event) {
   btnClicked = event.target
-  btnClicked.parentElement.parentElement.parentElement.parentElement.remove()
+  var productRow = document.getElementsByClassName('cartBox');
+    for (var i = 0; i < productRow.length; i++) {
+     var cartRow = productRow[i]
+    }
+    cartRow.remove();
   updateCartPrice()
 }
 
