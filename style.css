@@ -925,6 +925,9 @@ aside{
     right: -1em;
     padding-right: 2em;
 }
+.cartItem button i{
+    pointer-events: none;
+}
 .cartModel .cartItem{
     width: 100%;
     display: flex;
@@ -967,15 +970,17 @@ aside{
 }
 .cartTitle h2{
     color: #000;
-    padding: 1em 0;
+    padding: .5em 0;
 }
 
 .cartTitle h2{
     color: var(--midColor);
 }
 .cartTitle input{
-    width: 50%;
+    width: 30%;
     padding:.5em;
+    border-radius: .5em;
+    border: 1px solid #000;
 } 
 
 .theForm{

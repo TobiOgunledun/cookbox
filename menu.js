@@ -24,16 +24,8 @@ function hideCart(){
     cartPage.style.display = "none"
 }
 
-
-
-
-
-
-
 const buttons = document.querySelector('.buttons')
 const productsInCart = document.getElementById('categorySection');
-
-
 
 buttons.addEventListener("click", changeCategory );
 function changeCategory(e){
@@ -85,6 +77,7 @@ function changeCategory(e){
     }
    
 }
+
 
 
 
@@ -156,11 +149,8 @@ for (var i = 0; i < removeBtn.length; i++) {
 
 function removeItem (event) {
   btnClicked = event.target
-  var productRow = document.getElementsByClassName('cartBox');
-    for (var i = 0; i < productRow.length; i++) {
-     var cartRow = productRow[i]
-    }
-    cartRow.remove();
+
+  btnClicked.parentElement.parentElement.remove()
   updateCartPrice()
 }
 
@@ -185,26 +175,23 @@ function changeQuantity(event) {
 function updateCartPrice() {
   var total = 0
   var subtotal = 0;
+  const DELIVERYFEE = 1000;
     var productRow = document.getElementsByClassName('cartBox');
     for (var i = 0; i < productRow.length; i++) {
      var cartRow = productRow[i]
       
      
     var priceElement = cartRow.getElementsByClassName('cartPrice')[0];
-    var quantityElement = cartRow.getElementsByClassName('itemNumber')[0]
-    const DELIVERYFEE = 1000;
+    var quantityElement = cartRow.getElementsByClassName('itemNumber')[0];
     var price = parseInt(priceElement.innerText.replace('NGN', ' '))
     var quantity = quantityElement.value;
- 
-    var subTotal = subtotal + ( price * quantity);
-    total =  total + (price * quantity ) + DELIVERYFEE;
-      
-   
+    var subtotal = subtotal + (price * quantity);
+    total =  total +  (price * quantity);
     }
     // console.log(document.getElementsByClassName('totalPrice')[0])
-    document.getElementById('subtotal').innerText = subTotal;
-    document.getElementsByClassName('totalPrice')[0].innerText =   total;
-    document.getElementsByClassName('newAmount')[0].value = total;
+    document.getElementsByClassName('subtotal')[0].innerText = subtotal;
+    document.getElementsByClassName('totalPrice')[0].innerText =   total + DELIVERYFEE;
+    document.getElementsByClassName('newAmount')[0].value = total + DELIVERYFEE;
 
 
     document.getElementsByClassName('cartQuantity')[0].style.transform = "scale(1)"

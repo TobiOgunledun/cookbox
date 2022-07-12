@@ -35,14 +35,16 @@ function navLink(){
     menuShow.style.display = "block";
     menuHide.style.display = "none";
 }
-// function showCart(){
-//     cartPage.style.display = "flex"
-// }
-// function hideCart(){
-//     cartPage.style.display = "none"
-// }
+var locationIcon = document.getElementById('locationSection')
+function showContact(){
+    locationIcon.style.right = 0;
+}
+function hideContact(){
+    locationIcon.style.right = "";
+}
 
 function findMe() {
+    locationIcon.style.right = 0;
     const success = (position) => {
         console.log(position);
         var latitude = position.coords.latitude;
@@ -82,13 +84,7 @@ function carousel(){
 setTimeout(carousel, 5000);		
 }
 
-var locationIcon = document.getElementById('locationSection')
-function showContact(){
-    locationIcon.style.right = 0;
-}
-function hideContact(){
-    locationIcon.style.right = "";
-}
+
 
 
 

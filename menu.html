@@ -403,7 +403,7 @@
                </div>
                <div class="itemsListing">
                    <h3>subtotal</h3>
-                   <p id="subtotal"></p>
+                   <p class="subtotal"></p>
                </div>
                <div class="itemsListing">
                     <h3>delivery fee</h3>
@@ -451,13 +451,6 @@
 
     </div>
 
-
-
-
-
-
-
-
     <footer class="footer" id="footer">
         <div class="container" id="container">
             <div class="footSection" id="footSection">
@@ -495,9 +488,6 @@
     <script src="menu.js" defer></script>
     <script src="code.js" defer></script>
     <script src="https://js.paystack.co/v1/inline.js" defer></script>
-
-
-
     <script>
         const paymentForm = document.getElementById('paymentForm');
         paymentForm.addEventListener("submit", payWithPaystack, false);
