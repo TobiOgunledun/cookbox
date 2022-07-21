@@ -13,18 +13,18 @@ if(isset($_POST['submit'])) {
  $subject2 = "Confirmation: Message was submitted successfully | Cookbox inc"; // For customer confirmation
  
  //Email body I will receive
- $message = "Client Name: " . $name . "\n"
- . "Phone Number: " . $phone . "\n\n"
- . "Number of Guest: " . $guest . "\n\n"
- . "Date for occasion: " . $date . "\n\n"
- . "Type of Event: " . $event . "\n\n"
+ $message = "Client Name: " . $name . "\n"."\n"
+ . "Phone Number: " . $phone . "\n"
+ . "Number of Guest: " . $guest . "\n"
+ . "Date for occasion: " . $date . "\n"
+ . "Type of Event: " . $event . "\n"."\n"
  . "Client Message: " . "\n" . $_POST['message'];
  
  //Message for client confirmation
  $message2 = "Dear" . $name . "\n"
- . "Thank you for contacting us. We will get back to you shortly!" . "\n\n"
- . "You submitted the following message: " . "\n" . $_POST['message'] . "\n\n"
- . "Regards," . "\n" . "- Cookbox inc";
+ . "Thank you for contacting us. We will get back to you shortly!" . "\n"."\n"
+ . "You submitted the following message: " . "\n" . $_POST['message'] . "\n"."\n"
+ . "Regards," . "\n"."\n"."\n" . "- Cookbox inc";
  
  //Email headers
  $headers = "From: " . $fromEmail; // Client email, I will receive

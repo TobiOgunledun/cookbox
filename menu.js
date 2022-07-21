@@ -123,9 +123,13 @@ function addItemToCart (title, price, imageSrc) {
             <img src="${imageSrc}" alt="" class="cartImage">
         </div>
         <div class="cartTitle" id="cartTitle">
-            <h1>${title}</h1>
+            <h1 class="itemName">${title}</h1>
             <h2 class="cartPrice">${price}</h2>
-            <input type="number" min="1" class="itemNumber" value="1">
+            <select class="itemNumber">
+              <option value="1"> quantity 1 </option>
+              <option value="2"> quantity 2 </option>
+              <option value="3"> quantity 3 </option>
+            </select>
         </div>
         <button class="cancel"><i class="fas fa-times"></i></button>
     </div>
@@ -180,19 +184,29 @@ function updateCartPrice() {
     for (var i = 0; i < productRow.length; i++) {
      var cartRow = productRow[i]
       
-     
+    var quantityName = cartRow.getElementsByClassName('itemName')[0]; 
     var priceElement = cartRow.getElementsByClassName('cartPrice')[0];
     var quantityElement = cartRow.getElementsByClassName('itemNumber')[0];
     var price = parseInt(priceElement.innerText.replace('NGN', ' '))
     var quantity = quantityElement.value;
     var subtotal = subtotal + (price * quantity);
     total =  total +  (price * quantity);
+
+    if(quantity === "1"){
+      var listItem = "Quantity 1";
+    }else if(quantity === "2"){
+      var listItem = "Quantity 2";
+    }else if(quantity === "3"){
+      var listItem = "Quantity 3";
+    }
+    var listItems = `${quantityName.innerHTML} , ${listItem}`;
     }
     // console.log(document.getElementsByClassName('totalPrice')[0])
     document.getElementsByClassName('subtotal')[0].innerText = subtotal;
     document.getElementsByClassName('totalPrice')[0].innerText =   total + DELIVERYFEE;
     document.getElementsByClassName('newAmount')[0].value = total + DELIVERYFEE;
 
+    document.getElementsByClassName('items')[0].value = listItems;
 
     document.getElementsByClassName('cartQuantity')[0].style.transform = "scale(1)"
     document.getElementsByClassName('cartQuantity')[0].textContent = i
