@@ -565,6 +565,9 @@ label{
 .boxModel:hover .boxImage img{
     transform: scale(0.97);
 }
+.boxModel.groc{
+    display: none;
+}
 /* .foodOverlay{
     position: absolute;
     left: 0;
