@@ -199,14 +199,18 @@ function updateCartPrice() {
     }else if(quantity === "3"){
       var listItem = "Quantity 3";
     }
-    var listItems = `${quantityName.innerHTML} , ${listItem}`;
+    let itemsQuantity = {
+      "name": quantityName.innerHTML,
+      "quantity": listItem
+    };
+    var myJSON =  JSON.stringify(itemsQuantity);
     }
     // console.log(document.getElementsByClassName('totalPrice')[0])
     document.getElementsByClassName('subtotal')[0].innerText = subtotal;
     document.getElementsByClassName('totalPrice')[0].innerText =   total + DELIVERYFEE;
     document.getElementsByClassName('newAmount')[0].value = total + DELIVERYFEE;
 
-    document.getElementsByClassName('items')[0].value = listItems;
+    document.getElementsByClassName('items')[0].value = myJSON;
 
     document.getElementsByClassName('cartQuantity')[0].style.transform = "scale(1)"
     document.getElementsByClassName('cartQuantity')[0].textContent = i
