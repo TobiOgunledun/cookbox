@@ -1,5 +1,5 @@
 <?php  
- 
+
 if(isset($_POST['submit'])) {
  $mailto = "ogunledunoluwatobi@gmail.com";  //My email address
  //getting customer data
@@ -28,7 +28,7 @@ if(isset($_POST['submit'])) {
  
  //Email headers
  $headers = "From: " . $fromEmail; // Client email, I will receive
- $headers2 = "From: " . $mailto; // This will receive client
+ $headers2 = "From: " . $mailto; // The client will receive 
  
  //PHP mailer function
  
@@ -38,9 +38,9 @@ if(isset($_POST['submit'])) {
   //Checking if Mails sent successfully
  
   if ($result1 && $result2) {
-    $success = "Your Message was sent Successfully!";
+    echo "Your Message was sent Successfully!";
   } else {
-    $failed = "Sorry! Message was not sent, Try again Later.";
+    echo "Sorry! Message was not sent, Try again Later.";
   }
  
 }

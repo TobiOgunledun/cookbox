@@ -541,7 +541,13 @@ label{
 }
 .boxModel h1{
     padding-top: 1em;
-
+    font-size: 1.3em;
+}
+.boxModel h2{
+    display: none;
+}
+.boxModel h2 i{
+    font-size: .8em;
 }
 .boxModel .boxImage{
     position: relative;
@@ -887,6 +893,13 @@ aside{
     transition: all .7s ease;
     outline: hidden;
 }
+aside .ps{
+    background: #dc2f2f;
+    color: #fff;
+    margin: .5em 0;
+    padding: .5em;
+    width: 100%;
+}
 .payment{
     width: 100%;
     height: fit-content;
@@ -1011,7 +1024,33 @@ aside{
     border: 2px solid var(--midColor);
     width: 100%;
 }
-
+.theForm .form-submit{
+    width: 100%;
+    display: flex;
+    /* flex-direction: row; */
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1em;
+}
+.theForm .form-submit input[type=submit], .theForm .form-submit button{
+    width: 50%;
+    height: 5em;
+    padding: .3em .5em;
+    font-size: var(--regular);
+    border-radius: .3em;
+    border: 2px solid var(--mainColor);
+    text-transform: capitalize;
+    background: rgba(225, 47, 47, .8);
+    backdrop-filter: blur(5px);
+    color: var(--subColor);
+    cursor: pointer;
+    transition: all .3s ease;
+    margin: 0 auto;
+}
+.theForm .form-submit input[type=submit]:hover, .theForm .form-submit button:hover{
+    transform: scale(0.95);
+}
 .itemDetails{
     width: 100%;
     font-size: .8em;

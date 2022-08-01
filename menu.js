@@ -124,12 +124,7 @@ function addItemToCart (title, price, imageSrc) {
         </div>
         <div class="cartTitle" id="cartTitle">
             <h1 class="itemName">${title}</h1>
-            <h2 class="cartPrice">${price}</h2>
-            <select class="itemNumber">
-              <option value="1"> quantity 1 </option>
-              <option value="2"> quantity 2 </option>
-              <option value="3"> quantity 3 </option>
-            </select>
+            <h2 class="cartPrice"> <i class="fas fa-sterling-sign"></i>${price}</h2>
         </div>
         <button class="cancel"><i class="fas fa-times"></i></button>
     </div>
@@ -138,7 +133,7 @@ function addItemToCart (title, price, imageSrc) {
   productRow.innerHTML = cartRowItems;
   productRows.append(productRow);
   productRow.getElementsByClassName('cancel')[0].addEventListener('click', removeItem);
-  productRow.getElementsByClassName('itemNumber')[0].addEventListener('change', changeQuantity);
+  // productRow.getElementsByClassName('itemNumber')[0].addEventListener('change', changeQuantity);
 
   updateCartPrice()
 }
@@ -159,58 +154,55 @@ function removeItem (event) {
 }
 
 // update quantity input
-var quantityInput = document.getElementsByClassName('itemNumber')[0];
+// var quantityInput = document.getElementsByClassName('itemNumber')[0];
 
-for (var i = 0; i < quantityInput; i++){
-  input = quantityInput[i]
-  input.addEventListener('change', changeQuantity)
-}
+// for (var i = 0; i < quantityInput; i++){
+//   input = quantityInput[i]
+//   input.addEventListener('change', changeQuantity)
+// }
 
-function changeQuantity(event) {
-  var input = event.target
-  if (isNaN(input.value) || input.value <= 0){
-    input.value = 1
-  }
-  updateCartPrice()
-}
+// function changeQuantity(event) {
+//   var input = event.target
+//   if (isNaN(input.value) || input.value <= 0){
+//     input.value = 1
+//   }
+//   updateCartPrice()
+// }
 // end of update quantity input
 
 // update total price
 function updateCartPrice() {
   var total = 0
   var subtotal = 0;
-  const DELIVERYFEE = 1000;
+  var  quantity = 1;
+  const DELIVERYFEE = 1;
     var productRow = document.getElementsByClassName('cartBox');
     for (var i = 0; i < productRow.length; i++) {
      var cartRow = productRow[i]
       
     var quantityName = cartRow.getElementsByClassName('itemName')[0]; 
     var priceElement = cartRow.getElementsByClassName('cartPrice')[0];
-    var quantityElement = cartRow.getElementsByClassName('itemNumber')[0];
-    var price = parseInt(priceElement.innerText.replace('NGN', ' '))
-    var quantity = quantityElement.value;
+    // var quantityElement = cartRow.getElementsByClassName('itemNumber')[0];
+    var price = parseFloat(priceElement.innerText.replace('NGN', ' '))
+    // var quantity = quantityElement.value;
     var subtotal = subtotal + (price * quantity);
     total =  total +  (price * quantity);
 
-    if(quantity === "1"){
-      var listItem = "Quantity 1";
-    }else if(quantity === "2"){
-      var listItem = "Quantity 2";
-    }else if(quantity === "3"){
-      var listItem = "Quantity 3";
-    }
-    let itemsQuantity = {
-      "name": quantityName.innerHTML,
-      "quantity": listItem
-    };
-    var myJSON =  JSON.stringify(itemsQuantity);
+    // if(quantity === "1"){
+    //   var listItem = "Quantity 1";
+    // }else if(quantity === "2"){
+    //   var listItem = "Quantity 2";
+    // }else if(quantity === "3"){
+    //   var listItem = "Quantity 3";
+    // }
+    // var listItems = `${quantityName.innerHTML} , ${listItem}`;
     }
     // console.log(document.getElementsByClassName('totalPrice')[0])
     document.getElementsByClassName('subtotal')[0].innerText = subtotal;
     document.getElementsByClassName('totalPrice')[0].innerText =   total + DELIVERYFEE;
     document.getElementsByClassName('newAmount')[0].value = total + DELIVERYFEE;
 
-    document.getElementsByClassName('items')[0].value = myJSON;
+    // document.getElementsByClassName('items')[0].value = listItems;
 
     document.getElementsByClassName('cartQuantity')[0].style.transform = "scale(1)"
     document.getElementsByClassName('cartQuantity')[0].textContent = i
