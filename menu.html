@@ -179,7 +179,7 @@
                     </div>
                         <h1 class="foodTitle"> moin-moin</h1>
                         <p class="quantity">
-                            subject to availability
+                            1 PCK
                         </p>
                         <h2 class="foodPrice"><span><i class="fas fa-sterling-sign"></i> 1.99</span></h2>
                         <button  class="cartBtn" ><i class="fas fa-cart-plus"></i></button>
@@ -591,11 +591,7 @@
             },
             metadata: {
                 custom_fields: [
-                    {
-                        display_name : "phone",
-                        variable_name: "customer's phone",
-                        value: document.getElementById("phone").value
-                    },
+                    
                     {
                         display_name : "address",
                         variable_name: "customer's address",
@@ -605,6 +601,11 @@
                         display_name : "items",
                         variable_name: "products name",
                         value: document.getElementById("item").value
+                    },
+                    {
+                        display_name : "phone",
+                        variable_name: "phone",
+                        value: document.getElementById("phone").value
                     }
                 ]
             },
