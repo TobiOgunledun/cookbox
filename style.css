@@ -522,10 +522,27 @@ label{
     position: relative;
     transition: all 1s ease-in-out;
 }
-.boxModel, .myMenu{
+.myMenu{
     width: 20em;
     height: 20em;
     border-radius: 1em;
+    box-shadow: 0 5px 10px rgba(220, 47, 47, .5);
+    position: relative;
+    text-transform: capitalize;
+    outline: hidden;
+    overflow: hidden;
+    transition: all 1s ease-in-out;
+    color: #fff;
+    opacity: 0;
+    transform: scale(0);
+    animation: boxMenu 1s ease forwards;
+    animation-delay: .3s;
+    transition: all 1s ease-in-out
+}
+.boxModel{
+    width: 20em;
+    height: 15em;
+    border-radius: 50%;
     box-shadow: 0 5px 10px rgba(220, 47, 47, .5);
     position: relative;
     text-transform: capitalize;
@@ -595,6 +612,7 @@ label{
 .boxModel  p{
     padding: .7em 0;
     font-size: var(--regular);
+    display: none;
 }
 .boxModel button{
     background: var(--mainColor);
@@ -976,9 +994,9 @@ aside .ps{
     text-transform: capitalize;
     font-weight: 800;
 }
-.cartTitle h2{
-    color: #000;
-    padding: .5em 0;
+.cartTitle h3{
+    color: var(--mainColor);
+    padding: .8em 0;
 }
 
 .cartTitle h2{

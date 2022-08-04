@@ -1,6 +1,10 @@
 <?php  
+include('Mail.php'); // includes the PEAR Mail class, already on your server.
 
-if(isset($_POST['submit'])) {
+$username = 'info@cookboxltd.com'; // your email address
+$password = 'pQ5c8pOKFXcy'; // your email address password
+
+
  $mailto = "ogunledunoluwatobi@gmail.com";  //My email address
  //getting customer data
  $name = $_POST['name']; //getting customer name
@@ -20,7 +24,7 @@ if(isset($_POST['submit'])) {
  . "Type of Event: " . $event . "\n"."\n"
  . "Client Message: " . "\n" . $_POST['message'];
  
- //Message for client confirmation
+ //Message for client confirmation'
  $message2 = "Dear" . $name . "\n"
  . "Thank you for contacting us. We will get back to you shortly!" . "\n"."\n"
  . "You submitted the following message: " . "\n" . $_POST['message'] . "\n"."\n"
@@ -43,6 +47,5 @@ if(isset($_POST['submit'])) {
     echo "Sorry! Message was not sent, Try again Later.";
   }
  
-}
  
 ?>

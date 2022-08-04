@@ -95,15 +95,17 @@ function addToCartClicked (event) {
   var title = cartItem.getElementsByClassName('foodTitle')[0].innerText;
   var price = cartItem.getElementsByClassName('foodPrice')[0].innerText;
   // console.log(price);
+  var foodQuantity = cartItem.getElementsByClassName('quantity')[0].innerText.trim();
+//   console.log(foodQuantity);
   var imageSrc = cartItem.getElementsByClassName('itemImage')[0].src;
   // console.log(imageSrc);
   
   
-  addItemToCart (title, price, imageSrc);
+  addItemToCart (title, price, imageSrc, foodQuantity);
   updateCartPrice()
 }
 
-function addItemToCart (title, price, imageSrc) {
+function addItemToCart (title, price, imageSrc, foodQuantity) {
   var productRow = document.createElement('div');
   productRow.classList.add('cartBox');
   var productRows = document.getElementsByClassName('cartModel')[0];
@@ -124,6 +126,7 @@ function addItemToCart (title, price, imageSrc) {
         </div>
         <div class="cartTitle" id="cartTitle">
             <h1 class="itemName">${title}</h1>
+            <h3 class="theQuantity">${foodQuantity}</h3>
             <h2 class="cartPrice"> <i class="fas fa-sterling-sign"></i>${price}</h2>
         </div>
         <button class="cancel"><i class="fas fa-times"></i></button>
@@ -195,14 +198,14 @@ function updateCartPrice() {
     // }else if(quantity === "3"){
     //   var listItem = "Quantity 3";
     // }
-    // var listItems = `${quantityName.innerHTML} , ${listItem}`;
+    var listItems = `${quantityName.innerHTML}`;
     }
     // console.log(document.getElementsByClassName('totalPrice')[0])
     document.getElementsByClassName('subtotal')[0].innerText = subtotal;
     document.getElementsByClassName('totalPrice')[0].innerText =   total + DELIVERYFEE;
     document.getElementsByClassName('newAmount')[0].value = total + DELIVERYFEE;
 
-    // document.getElementsByClassName('items')[0].value = listItems;
+    document.getElementsByClassName('items')[0].value = listItems;
 
     document.getElementsByClassName('cartQuantity')[0].style.transform = "scale(1)"
     document.getElementsByClassName('cartQuantity')[0].textContent = i
