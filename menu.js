@@ -133,6 +133,10 @@ function addItemToCart (title, price, imageSrc, foodQuantity) {
     </div>
         
       `
+
+      var eachItem = document.getElementById('eachItem');
+      eachItem.append(`${title}; `)
+      console.log(eachItem);
   productRow.innerHTML = cartRowItems;
   productRows.append(productRow);
   productRow.getElementsByClassName('cancel')[0].addEventListener('click', removeItem);

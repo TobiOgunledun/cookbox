@@ -153,7 +153,7 @@
                     </div>
                         <h1 class="foodTitle">peppered snails</h1>
                         <p class="quantity">
-                           subject to availability
+                          1PCK
                         </p>
                         <h2 class="foodPrice"><span><i class="fas fa-sterling-sign"></i> 20.99</span></h2>
                         <button  class="cartBtn" ><i class="fas fa-cart-plus"></i></button>
@@ -521,7 +521,11 @@
                   </div>
                   <div class="form-group">
                     <label for="last-name">Items</label>
-                    <input type="text" id="item" class="items" name="items" />
+                    <div class="items" id="items">
+                        <ul id="eachItem">
+                            
+                        </ul>
+                    </div>
                   </div>
                   <div class="form-group">
                     <label for="address">Address</label>
@@ -583,7 +587,7 @@
             email: document.getElementById("email-address").value,
             amount: document.getElementById("amount").value * 100,
             address: document.getElementById("address").value,
-            Items: document.getElementById("item").value,
+            Items: document.getElementById("eachItem").innerText,
             ref: "COOKBOXinc" + '' +''+Math.floor((Math.random() * 1000000000) + 1), // generates a pseudo-unique reference. Please replace with a reference you generated. Or remove the line entirely so our API will generate one for you
             // label: "Optional string that replaces customer email"
             onClose: function(){
@@ -600,7 +604,7 @@
                     {
                         display_name : "items",
                         variable_name: "products name",
-                        value: document.getElementById("item").value
+                        value: document.getElementById('eachItem').innerText
                     },
                     {
                         display_name : "phone",

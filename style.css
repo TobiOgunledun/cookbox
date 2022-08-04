@@ -1101,3 +1101,13 @@ aside .ps{
     width: 40%;
     margin: 0 auto;
 }
+.form-group .items{
+    margin: .5em 0;
+    width: 100%;
+    min-width: 3em;
+    padding: .5em 0;
+   
+}
+.form-group .items ul{
+    font-size: var(--regular);
+}
